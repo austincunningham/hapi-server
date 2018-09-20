@@ -1,0 +1,15 @@
+{
+  "name": "hapi-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Austin Cunningham",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.5.4"
+  }
+}
