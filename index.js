@@ -8,11 +8,15 @@ var server = new Hapi.Server({
     port: 3000
 });
 
-// route
-server.route(require('./routes'));
+
 
 // Starting the hapi server
 async function start(){
+    // middleware for static web content
+    await server.register(require('inert'));
+
+    // route
+    server.route(require('./routes'));
     try {
         await server.start();
     }
@@ -26,11 +30,11 @@ async function start(){
 start();
 
 // Stopping Hapi server gracefully
-process.on('SIGINT', function () {  
+process.on('unhandledRejection', function (err) {  
     console.log('stopping hapi server')
   
     server.stop({ timeout: 10000 }).then(function (err) {
       console.log('hapi server stopped')
-      process.exit((err) ? 1 : 0)
+      process.exit(1);
     })
   });
