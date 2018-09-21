@@ -1,12 +1,12 @@
-// exports.hello = {
-//     handler: function(req, res){
-//         return 'Hello World from Hapi';
-//     }
-// };
+exports.hello = {
+    handler: function(req, res){
+        return 'Hello World from Hapi';
+    }
+};
 
 // file handler
 exports.index = {
-    handler: function(req, h){
-        return h.file('./public/index.html');
+    handler: function(req, res){
+        return res.file('./public/hello.html');
     }
 }
