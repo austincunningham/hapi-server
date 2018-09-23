@@ -10,6 +10,6 @@ npm install
 npm start
 ```
 ## Endpoint
-http://localhost:3000/hello
-http://localhost:3000/index
-http://localhost:3000/{filename}
+- http://localhost:3000/hello
+- http://localhost:3000/index
+- http://localhost:3000/{filename}
