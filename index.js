@@ -1,19 +1,22 @@
 'use strict';
 
 const Hapi = require('hapi');
+const Path = require('path');
+const Inert = require('inert');
 
-// Create
+// Create server, with public directory exposed
 var server = new Hapi.Server({
     host: 'localhost',
-    port: 3000
+    port: 3000, 
+    routes: {files:{relativeTo: Path.join(__dirname, 'public')}}
 });
 
 
 
 // Starting the hapi server
 async function start(){
-    // middleware for static web content
-    await server.register(require('inert'));
+    // plugin for static web content
+    await server.register(Inert);
 
     // route
     server.route(require('./routes'));
