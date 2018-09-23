@@ -9,7 +9,7 @@ npm install
 ```
 npm start
 ```
-## Endpoint
+## Endpoints
 - http://localhost:3000/hello
 - http://localhost:3000/index
 - http://localhost:3000/{filename}
