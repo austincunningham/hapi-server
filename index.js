@@ -4,6 +4,8 @@ const Hapi = require('hapi');
 const Path = require('path');
 const Inert = require('inert');
 
+require('./app/models/db')
+
 // Create server, with public directory exposed
 var server = new Hapi.Server({
     host: 'localhost',
