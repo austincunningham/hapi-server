@@ -3,14 +3,15 @@
 const Hapi = require('hapi');
 const Path = require('path');
 const Inert = require('inert');
+const vision = require('vision');
+const handlebars = require('handlebars');
 
 require('./app/models/db')
 
 // Create server, with public directory exposed
 var server = new Hapi.Server({
     host: 'localhost',
-    port: 3000//, 
-    //routes: {files:{relativeTo: Path.join(__dirname, 'public')}}
+    port: 3000
 });
 
 
@@ -18,7 +19,16 @@ var server = new Hapi.Server({
 // Starting the hapi server
 async function start(){
     // plugin for static web content
-    await server.register(Inert);
+    await server.register([Inert,vision]);
+
+    await server.views({
+        engines: {
+          hbs: handlebars,
+        },
+        relativeTo: __dirname,
+        path: './app/views',
+        isCached: false,
+      });
 
     // route
     server.route(require('./routes'));
