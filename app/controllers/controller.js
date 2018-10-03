@@ -21,10 +21,8 @@ exports.page1 = {
 };
 
 exports.servesPublicDirectory = {
-    handler: {
-        directory: {
-            path: 'public',
-            listing: true
-        }
+    directory: {
+        path: 'public',
+        listing: true
     }
 };

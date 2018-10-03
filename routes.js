@@ -4,5 +4,5 @@ module.exports = [
     {method: 'GET', path: '/hello', config: Controller.hello },
     {method: 'GET', path: '/', config: Controller.index },
     {method: 'GET', path: '/page1', config: Controller.page1 },
-    {method: 'GET', path: '/{param*}', config: Controller.servesPublicDirectory}
+    {method: 'GET', path: '/{param*}', config:{ auth: false}, handler: Controller.servesPublicDirectory}
 ];
